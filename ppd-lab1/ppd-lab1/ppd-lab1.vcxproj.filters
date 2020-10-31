@@ -33,6 +33,9 @@
     <ClInclude Include="InventoryChecker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Buyer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -51,6 +54,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InventoryChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Buyer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bill.h" />
+    <ClInclude Include="Buyer.h" />
     <ClInclude Include="InventoryChecker.h" />
     <ClInclude Include="Market.h" />
     <ClInclude Include="Product.h" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bill.cpp" />
+    <ClCompile Include="Buyer.cpp" />
     <ClCompile Include="InventoryChecker.cpp" />
     <ClCompile Include="Market.cpp" />
     <ClCompile Include="ppd-lab1.cpp" />

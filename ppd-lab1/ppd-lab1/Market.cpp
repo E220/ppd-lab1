@@ -43,3 +43,11 @@ void Market::addBill(Bill bill)
 	}
 	bills.push_back(bill);
 }
+
+void Market::buy(const std::vector<std::pair<Product, int>> & cart)
+{
+	Bill bill;
+	for (const std::pair<Product, int> & item : cart)
+		bill.addBillItem(item.first, item.second);
+	addBill(bill);
+}
