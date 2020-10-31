@@ -3,7 +3,7 @@
 
 int Product::nextId = 1;
 
-Product::Product(int price, int quantity) :
+Product::Product(int price) :
 	id { nextId++ }, price { price }
 {
 }

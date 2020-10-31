@@ -6,9 +6,14 @@ const std::vector<Product> & Market::getProducts(void) const
 	return products;
 }
 
-int Market::getQuantityOf(const Product & product) const
+int Market::getQuantityOf(int productId) const
 {
-	return quantities.at(product.getId());
+	return quantities.at(productId);
+}
+
+int Market::getOriginalQuantityOf(int productId) const
+{
+	return originalQuantities.at(productId);
 }
 
 const std::vector<Bill> & Market::getBills(void) const
@@ -25,6 +30,7 @@ void Market::addProduct(const Product & product, int quantity)
 {
 	products.push_back(product);
 	quantities[product.getId()] = quantity;
+	originalQuantities[product.getId()] = quantity;
 }
 
 void Market::addBill(Bill bill)

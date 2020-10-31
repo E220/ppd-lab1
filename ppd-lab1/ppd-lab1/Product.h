@@ -2,7 +2,7 @@
 class Product
 {
 public:
-	Product(int price, int quantity);
+	Product(int price);
 
 	int getId(void) const;
 	int getPrice(void) const;

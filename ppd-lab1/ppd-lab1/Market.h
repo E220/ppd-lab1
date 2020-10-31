@@ -5,7 +5,8 @@
 class Market
 {
 public:
-	int getQuantityOf(const Product & product) const;
+	int getQuantityOf(int productId) const;
+	int getOriginalQuantityOf(int productId) const;
 	const std::vector<Product> & getProducts(void) const;
 	const std::vector<Bill> & getBills(void) const;
 	long long getMoney(void) const;
@@ -15,6 +16,7 @@ public:
 private:
 	std::vector<Product> products;
 	std::unordered_map<int, int> quantities;
+	std::unordered_map<int, int> originalQuantities;
 	std::vector<Bill> bills;
 	long long money;
 };
