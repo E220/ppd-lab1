@@ -1,32 +1,18 @@
 #include "stdafx.h"
 #include "Bill.h"
 
-const std::vector<Bill::BillItem> & Bill::getBillItems() const
-{
-	return billItems;
-}
 
-void Bill::addBillItem(const Product & product, int quantity)
-{
-	billItems.emplace_back(product, quantity);
-}
-
-Bill::BillItem::BillItem(const Product & product, int quantity) :
-	product { product }, quantity { quantity }, total { product.getPrice() * quantity }
+Bill::Bill(int productId, int quantity) :
+	productId { productId }, quantity { quantity }
 {
 }
 
-Product Bill::BillItem::getProduct(void) const
+int Bill::getProductId(void) const
 {
-	return product;
+	return productId;
 }
 
-int Bill::BillItem::getQuantity() const
+int Bill::getQuantity() const
 {
 	return quantity;
-}
-
-int Bill::BillItem::getTotal() const
-{
-	return total;
 }

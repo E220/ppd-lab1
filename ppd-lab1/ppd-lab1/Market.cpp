@@ -33,21 +33,26 @@ void Market::addProduct(const Product & product, int quantity)
 	originalQuantities[product.getId()] = quantity;
 }
 
-void Market::addBill(Bill bill)
+void Market::buyProduct(const Bill & bill)
 {
-	for (const Bill::BillItem & billItem : bill.getBillItems())
-	{
-		const int quantity = quantities[billItem.getProduct().getId()];
-		quantities[billItem.getProduct().getId()] = quantity - billItem.getQuantity();
-		money += billItem.getTotal();
-	}
+	const int productId = bill.getProductId();
+
+	mutex.lock();
+
+	const int quantity = quantities[productId];
+	quantities[productId] = quantity - bill.getQuantity();
+	money += bill.getQuantity() * products[bill.getProductId()].getPrice();
 	bills.push_back(bill);
+
+	mutex.unlock();
 }
 
-void Market::buy(const std::vector<std::pair<Product, int>> & cart)
+void Market::lock(void)
 {
-	Bill bill;
-	for (const std::pair<Product, int> & item : cart)
-		bill.addBillItem(item.first, item.second);
-	addBill(bill);
+	mutex.lock();
+}
+
+void Market::unlock(void)
+{
+	mutex.unlock();
 }

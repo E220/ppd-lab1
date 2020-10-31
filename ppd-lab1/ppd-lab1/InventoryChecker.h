@@ -4,5 +4,5 @@
 class InventoryChecker
 {
 public:
-	static bool check(const Market & market);
+	static bool check(Market & market);
 };

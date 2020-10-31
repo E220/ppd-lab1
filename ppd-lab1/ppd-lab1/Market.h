@@ -12,14 +12,17 @@ public:
 	long long getMoney(void) const;
 
 	void addProduct(const Product & product, int quantity);
-	void buy(const std::vector<std::pair<Product, int>> & cart);
+	void buyProduct(const Bill & bill);
+
+	void lock(void);
+	void unlock(void);
 private:
 	std::vector<Product> products;
 	std::unordered_map<int, int> quantities;
 	std::unordered_map<int, int> originalQuantities;
 	std::vector<Bill> bills;
 	long long money;
-
-	void addBill(Bill bill);
+	
+	std::mutex mutex;
 };
 

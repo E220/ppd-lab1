@@ -3,24 +3,15 @@
 
 void Buyer::buyRandomProducts(Market & market)
 {
-	const int nrItems = rand() % 3 + 1;
+	const int nrItems = rand() % 10 + 1;
+	const std::vector<Product> & products = market.getProducts();
 	for (int i = 0; i < nrItems; i++)
 	{
-		const std::vector<Product> & products = market.getProducts();
 		const Product & product = products[rand() % products.size()];
-		const int quantity = rand() % 5 + 1;
-		buyProduct(product, quantity);
+		const int quantity = rand() % 20 + 1;
+		cart.push_back(Bill { product.getId(), quantity });
 	}
-	finishShopping(market);
-}
-
-void Buyer::buyProduct(const Product & product, int quantity)
-{
-	cart.emplace_back(product, quantity);
-}
-
-void Buyer::finishShopping(Market & market)
-{
-	market.buy(cart);
+	for (const Bill & bill : cart)
+		market.buyProduct(bill);
 	cart.clear();
 }

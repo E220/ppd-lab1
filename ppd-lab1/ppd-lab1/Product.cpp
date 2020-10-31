@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Product.h"
 
-int Product::nextId = 1;
+int Product::nextId = 0;
 
 Product::Product(int price) :
 	id { nextId++ }, price { price }
