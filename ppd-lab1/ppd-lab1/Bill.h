@@ -9,11 +9,11 @@ public:
 	public:
 		BillItem(const Product & product, int quantity);
 
-		const Product & getProduct() const;
+		Product getProduct() const;
 		int getQuantity() const;
 		int getTotal() const;
 	private:
-		const Product & product;
+		const Product product;
 		const int quantity;
 		const int total;
 	};

@@ -16,7 +16,7 @@ Bill::BillItem::BillItem(const Product & product, int quantity) :
 {
 }
 
-const Product & Bill::BillItem::getProduct(void) const
+Product Bill::BillItem::getProduct(void) const
 {
 	return product;
 }

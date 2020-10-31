@@ -4,12 +4,12 @@ class Product
 public:
 	Product(int price, int quantity);
 
+	int getId(void) const;
 	int getPrice(void) const;
-	int getQuantity(void) const;
-
-	void setQuantity(int quantity);
 private:
+	const int id;
 	const int price;
-	int quantity;
+
+	static int nextId;
 };
 
